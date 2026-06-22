@@ -8,15 +8,15 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
 
-    build: isWidget
-      ? {
+    build: 
+       {
           lib: {
             entry: path.resolve(__dirname, "src/index.widget.tsx"),
             name: "RohithWizard",
             formats: ["iife"],
             fileName: () => "bundle.js",
           },
-          outDir: "dist-lib",
+          outDir: "dist",
           emptyOutDir: true,
           minify: "esbuild",
           sourcemap: true,
@@ -27,10 +27,5 @@ export default defineConfig(({ mode }) => {
             },
           },
         }
-      : {
-          outDir: "dist",
-          emptyOutDir: true,
-          sourcemap: true,
-        },
   };
 });
